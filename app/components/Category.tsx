@@ -51,7 +51,7 @@ const Category = () => {
     return (
         <div className={"px-40 mt-10"}>
             <h1 className={"text-3xl font-bold"}>
-                There's something for everyone!
+                There&apos;s something for everyone!
             </h1>
 
             <div className="">

@@ -10,7 +10,7 @@ import {Tab, Tabs} from "@mui/material";
 const sample = ["Món Mới", "Món Nổi Bật", "Combo", "Đồ Uống", "Khuyến Mãi"]
 
 const FoodShop = () => {
-    const sectionRefs = Array.from({length: 5}).map(() => useRef<HTMLHeadingElement>(null));
+    // const sectionRefs = Array(5).fill(0).map(() => useRef<HTMLHeadingElement>(null));
     const [selected, setSelected] = useState(0)
     const [isTabSelected, setIsTabSelected] = useState(false)
 
@@ -22,7 +22,7 @@ const FoodShop = () => {
         function handleSelected(event: React.ChangeEvent<{}>, newValue: number) {
             setSelected(newValue)
             setIsTabSelected(true)
-            sectionRefs[newValue].current?.scrollIntoView({behavior: 'smooth'});
+            // sectionRefs[newValue].current?.scrollIntoView({behavior: 'smooth'});
         }
 
 
@@ -43,7 +43,7 @@ const FoodShop = () => {
         )
     }
 
-    const checkSectionInView = () => {
+    /*const checkSectionInView = () => {
 
         sectionRefs.forEach((ref, index) => {
             const rect = ref.current?.getBoundingClientRect();
@@ -52,14 +52,14 @@ const FoodShop = () => {
                 return;
             }
         });
-    };
+    };*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         window.addEventListener('scroll', checkSectionInView);
         return () => {
             window.removeEventListener('scroll', checkSectionInView);
         };
-    }, [selected, isTabSelected]);
+    }, [selected, isTabSelected]);*/
 
     return (
         <div className={"mt-[88px] pt-10 "}>
@@ -96,7 +96,8 @@ const FoodShop = () => {
                 {Array.from({length: 5}).map((_, index) => {
                     return (
                         <div key={index}>
-                            <h1 ref={sectionRefs[index]} className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>
+                            {/*<h1 ref={sectionRefs[index]} className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>*/}
+                            <h1  className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>
 
                             <div className={'flex flex-wrap mt-10'}>
                                 <FoodCard/>

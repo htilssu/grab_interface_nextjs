@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Card} from "@mui/material";
 import {FaMinus, FaPlus, FaTrashCan} from "react-icons/fa6";
+import Image from "next/image";
 
 const FoodCard = () => {
     const [quantity, setQuantity] = useState<number>(0)
@@ -54,8 +55,8 @@ const FoodCard = () => {
                 <div className={'flex'}>
                     <div className={'flex p-3'}>
                         <div className={'w-[120px] h-[120px] shrink-0'}>
-                            <img className={'object-cover rounded-md w-full h-full'} alt={'banh mi'}
-                                 src={'/banhmi.webp'}/>
+                            <Image className={'object-cover rounded-md w-full h-full'} alt={'banh mi'}
+                                   src={'/banhmi.webp'} />
                         </div>
                         <div className={'p-3 flex flex-col justify-between'}>
                             <h1>Bún đậu mắm tôm siêu khắm</h1>

@@ -1,13 +1,13 @@
 import {MdPlace} from "react-icons/md";
 import {TfiTarget} from "react-icons/tfi";
-import {StaticImageData} from "next/image";
+import Image, {StaticImageData} from "next/image";
 import AddressInput from "@/app/components/AddressInput";
 
 
 const Banner = ({banner, className}: { banner: StaticImageData, className?: string }) => {
     return (
         <div className="relative w-full">
-            <img alt="banner" className={className ? className : "object-cover"} src={banner.src}/>
+            <Image alt="banner" className={className ? className : "object-cover"} src={banner.src}/>
 
             <div
                 className={"absolute w-1/4 font-bold p-5 border-[1px] border-gray-200 rounded bg-white left-[13%] top-2/3"}>
