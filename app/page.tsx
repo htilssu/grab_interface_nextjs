@@ -16,7 +16,7 @@ export default function Page() {
             <NavBar />
             <Banner className="object-cover w-full h-[375px]"  banner={banner}/>
             <hr className={'mt-32 border-gray-300'}/>
-            <FoodSection className={"mt-28 py-5 px-40"}/>
+            <FoodSection className={"mt-28 py-5 px-5 md:px-40"}/>
             <Category/>
             <QuestionSection/>
             <BottomBanner/>

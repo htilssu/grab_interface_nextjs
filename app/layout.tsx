@@ -1,11 +1,21 @@
 import "./globals.css"
 import React from "react";
-import {Metadata} from "next";
+import {Metadata, Viewport} from "next";
 
 export const metadata: Metadata = {
     title: "Food Shop",
     description: "Food Shop",
 };
+
+export const viewport: Viewport = {
+    themeColor: 'black',
+    width: 'device-width',
+    initialScale: 1,
+    userScalable: false,
+    minimumScale: 1,
+    maximumScale: 1,
+    viewportFit: 'cover',
+}
 
 
 export default function RootLayout({children}: { children: React.ReactNode }) {

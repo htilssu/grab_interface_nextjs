@@ -49,7 +49,7 @@ const FoodCard = () => {
     };
 
     return (
-        <div className={'md:w-1/3 w-full p-2'}>
+        <div className={'lg:w-1/3 md:w-1/2 sm:w-1/2 w-full p-2'}>
             <div
                 className={"rounded bg-white border-[1px] hover:border-green-500 border-transparent relative overflow-hidden"}>
                 <div className={'flex'}>

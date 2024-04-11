@@ -34,7 +34,7 @@ const NavBar = ({addressNavbarProp}: {
     }, []);
 
     if (addressNavbar || addressNavbarProp) {
-      return  (
+        return (
             <div
                 style={
                     {
@@ -42,21 +42,21 @@ const NavBar = ({addressNavbarProp}: {
                         zIndex: 1000,
                     }
                 }
-                className={`fixed top-0 w-full md:h-[88px] sm:h-[40px] ${!isScrollDown && addressNavbar ? "bg-gradient-to-b from-[#00000066] to-transparent" : "bg-white"}`}>
-                <div className={"flex justify-between items-center h-full px-40"}>
-                    <div className={"text-2xl w-36 font-bold"}>
-                        <Image height={150} width={150} alt="logo" src={isScrollDown || !addressNavbar ? greenLogo.src : logo.src}/>
+                className={`fixed top-0 w-full md:h-[88px] h-[50px] ${!isScrollDown && addressNavbar ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white"}`}>
+                <div className={"flex justify-between items-center h-full p-5 md:px-40"}>
+                    <div className={"p-5"}>
+                        <Image height={150} width={150} alt="logo" src={greenLogo.src}/>
                     </div>
-                    {(addressNavbar || addressNavbarProp) && <AddressInput/>}
-                    <div className={"flex space-x-4"}>
+                    <div className={"flex space-x-4 items-center"}>
                         <button
-                            className={`${scrollStyle} h-10 w-10 p-2 rounded`}>
+                            className={`${scrollStyle} h-8 w-8 md:h-10 md:w-10 p-2 rounded`}>
                             <CiShoppingBasket
                                 className={`w-full h-full font-bold`}/>
                         </button>
-                        <Avatar className={`border-2 ${isScrollDown && "border-green-500"} ${scrollStyle}`}/>
+                        <Avatar
+                            className={`border-2 w-8 h-8 md:h-10 md:w-10 ${isScrollDown && "border-green-500"} ${scrollStyle}`}/>
                         <button
-                            className={`${scrollStyle} flex gap-2 items-center justify-center h-10 p-2 rounded`}>
+                            className={`${scrollStyle} flex gap-2 text-sm items-center justify-center h-8 w-8 md:h-10 md:w-10 p-2 rounded`}>
                             VI
 
                             <RiArrowDropDownLine className={"h-full"}/>
@@ -65,8 +65,8 @@ const NavBar = ({addressNavbarProp}: {
                 </div>
             </div>
         );
-    }else {
-      return  (
+    } else {
+        return (
             <div
                 style={
                     {
@@ -74,20 +74,24 @@ const NavBar = ({addressNavbarProp}: {
                         zIndex: 1000,
                     }
                 }
-                className={`fixed top-0 w-full md:h-[88px] sm:h-[40px] ${!isScrollDown ? "bg-gradient-to-b from-[#00000066] to-transparent" : "bg-white shadow-lg"}`}>
-                <div className={"flex justify-between items-center h-full px-40"}>
-                    <div className={"text-2xl w-36 font-bold"}>
+                className={`fixed top-0 w-full md:h-[88px] h-[50px] ${!isScrollDown ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white shadow-lg"}`}>
+                <div className={"flex justify-between items-center h-full p-5 md:px-40"}>
+                    <div className={"text-2xl w-36 font-bold hidden sm:block"}>
                         <Image height={150} width={150} alt="logo" src={isScrollDown ? greenLogo.src : logo.src}/>
                     </div>
-                    <div className={"flex space-x-4"}>
+                    <div className={"sm:hidden block p-5"}>
+                        <Image height={150} width={150} alt="logo" src={greenLogo.src}/>
+                    </div>
+                    <div className={"flex space-x-4 items-center"}>
                         <button
-                            className={`${scrollStyle} h-10 w-10 p-2 rounded`}>
+                            className={`${scrollStyle} h-8 w-8 md:h-10 md:w-10 p-2 rounded`}>
                             <CiShoppingBasket
                                 className={`w-full h-full font-bold`}/>
                         </button>
-                        <Avatar className={`border-2 ${isScrollDown && "border-green-500"} ${scrollStyle}`}/>
+                        <Avatar
+                            className={`border-2 w-8 h-8 md:h-10 md:w-10 ${isScrollDown && "border-green-500"} ${scrollStyle}`}/>
                         <button
-                            className={`${scrollStyle} flex gap-2 items-center justify-center h-10 p-2 rounded`}>
+                            className={`${scrollStyle} flex gap-2 text-sm items-center justify-center h-8 w-8 md:h-10 md:w-10 p-2 rounded`}>
                             VI
 
                             <RiArrowDropDownLine className={"h-full"}/>

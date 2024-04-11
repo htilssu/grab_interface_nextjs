@@ -4,7 +4,7 @@ export default function QuestionSection() {
     const [hidden, setHidden] = useState(true);
 
     return (
-        <div className={'px-40'}>
+        <div className={'md:px-40 p-5'}>
             <div>
                 <h1 className="font-bold text-4xl w-full mb-4 mt-10">Frequently Asked Questions</h1>
                 <Title content={'What is GrabFood?'}></Title>

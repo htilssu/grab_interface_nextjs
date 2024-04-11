@@ -63,7 +63,7 @@ const FoodShop = () => {
     return (
         <div className={"mt-[88px] pt-10 "}>
             <div className={'md:px-40 p-5 sm:p-10'}>
-                <div className={'flex items-center gap-2'}>
+                <div className={'flex items-center text-sm gap-2'}>
                     <a href={"/"} className={"text-sky-700"}>Trang Chủ</a> <BiChevronRight/> <a href={"/"}
                                                                                                 className={"text-sky-700"}>Nhà
                     Hàng</a> <BiChevronRight/> Xôi Chú Ngọng - Đê La Thành
@@ -86,12 +86,12 @@ const FoodShop = () => {
                     </div>
                 </div>
             </div>
-            <div className={'bg-white mt-10 sticky top-[88px] z-20 px-40 shadow'}>
+            <div className={'bg-white mt-10 sticky md:top-[88px] top-[50px] z-20 sm:p-5 md:px-40 shadow'}>
                 <div>
                     <FoodSection arraySection={sample}/>
                 </div>
             </div>
-            <div className={'px-40 py-20 bg-[#F7F7F7]'}>
+            <div className={'md:px-40 p-5 py-20 bg-[#F7F7F7]'}>
                 {Array.from({length: 5}).map((_, index) => {
                     return (
                         <div key={index}>

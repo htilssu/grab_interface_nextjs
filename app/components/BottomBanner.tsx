@@ -7,7 +7,7 @@ const BottomBanner = () => {
             <div className="mt-10 py-20 bg-[#F7F7F7]">
                 <div className="">
                     <div className="">
-                        <div className="flex px-20">
+                        <div className="flex flex-col md:flex-row  px-20">
                             <div className="text-center p-5">
                                 <div className="">
                                     <div className={"flex items-center justify-center"}>

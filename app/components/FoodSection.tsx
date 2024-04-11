@@ -16,8 +16,22 @@ const FoodSection = ({className}: {
                 </h2>
 
 
-                <Swiper className={"mt-10"} direction={"horizontal"} slidesPerView={4}
-                        spaceBetween={20}>
+                <Swiper className={"mt-10"} direction={"horizontal"} breakpoints={
+                    {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10
+                        },
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 10
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                            spaceBetween: 20,
+                        }
+                    }
+                } slidesPerView={4} spaceBetween={"10"}>
                     {count.map((_, index) => {
                         return (
                             <SwiperSlide key={index}>

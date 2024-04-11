@@ -49,8 +49,8 @@ const Category = () => {
     const [category, setCategory] = useState([...dummyCategory,...dummyCategory])
 
     return (
-        <div className={"px-40 mt-10"}>
-            <h1 className={"text-3xl font-bold"}>
+        <div className={"md:px-40 sm:px-20 p-5 mt-10"}>
+            <h1 className={"text-md md:text-3xl font-bold"}>
                 There&apos;s something for everyone!
             </h1>
 

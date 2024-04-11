@@ -5,7 +5,7 @@ import {TfiTarget} from "react-icons/tfi";
 const AddressInput = () => {
     return (
         <div>
-            <div className={"border-gray-400 border-[1px] flex items-center rounded py-1 px-3"}>
+            <div className={"border-gray-400 border-[1px] flex items-center rounded md:py-1 px-2 md:px-3"}>
                 <MdPlace className={"h-full w-5 text-red-600"}/>
                 <input
                     className="border-none text-gray-700 font-normal w-full h-10 p-3 focus:border-none outline-none"
