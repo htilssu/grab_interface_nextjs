@@ -7,7 +7,7 @@ import AddressInput from "@/app/components/AddressInput";
 const Banner = ({banner, className}: { banner: StaticImageData, className?: string }) => {
     return (
         <div className="relative w-full">
-            <Image alt="banner" className={className ? className : "object-cover"} src={banner.src}/>
+            <Image height={150} width={150} alt="banner" className={className ? className : "object-cover"} src={banner.src}/>
 
             <div
                 className={"absolute w-1/4 font-bold p-5 border-[1px] border-gray-200 rounded bg-white left-[13%] top-2/3"}>

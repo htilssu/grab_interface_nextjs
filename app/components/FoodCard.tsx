@@ -55,7 +55,7 @@ const FoodCard = () => {
                 <div className={'flex'}>
                     <div className={'flex p-3'}>
                         <div className={'w-[120px] h-[120px] shrink-0'}>
-                            <Image className={'object-cover rounded-md w-full h-full'} alt={'banh mi'}
+                            <Image height={150} width={150} className={'object-cover rounded-md w-full h-full'} alt={'banh mi'}
                                    src={'/banhmi.webp'} />
                         </div>
                         <div className={'p-3 flex flex-col justify-between'}>

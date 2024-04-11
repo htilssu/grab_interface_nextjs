@@ -1,10 +1,11 @@
-import React, {createRef, useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {BiChevronRight} from "react-icons/bi";
 import Distance from "@/app/components/Distance";
 import Rating from "@/app/components/Rating";
 import VoucherTag from "@/app/components/VoucherTag";
 import FoodCard from "@/app/components/FoodCard";
 import {Tab, Tabs} from "@mui/material";
+import {Link} from "react-scroll";
 
 
 const sample = ["Món Mới", "Món Nổi Bật", "Combo", "Đồ Uống", "Khuyến Mãi"]
@@ -12,30 +13,28 @@ const sample = ["Món Mới", "Món Nổi Bật", "Combo", "Đồ Uống", "Khuy
 const FoodShop = () => {
     // const sectionRefs = Array(5).fill(0).map(() => useRef<HTMLHeadingElement>(null));
     const [selected, setSelected] = useState(0)
-    const [isTabSelected, setIsTabSelected] = useState(false)
 
 
     const FoodSection = ({arraySection,}: {
         arraySection: string[],
     }) => {
 
-        function handleSelected(event: React.ChangeEvent<{}>, newValue: number) {
+        function handleSelected(newValue: number) {
             setSelected(newValue)
-            setIsTabSelected(true)
-            // sectionRefs[newValue].current?.scrollIntoView({behavior: 'smooth'});
         }
+
 
 
         return (
             <div>
-                <Tabs variant={'fullWidth'} value={selected} onChange={handleSelected}
-                      className={'flex justify-between'}>
+                <Tabs variant={'fullWidth'} value={selected}>
                     {arraySection.map((section, index) => {
                         return (
-                            <Tab key={index}
-                                 label={(<div className={`${index === selected ? "text-green-600" : "text-gray-600"}`}>
-                                     <div>{section}</div>
-                                 </div>)}/>
+                            <Tab key={index} label={
+                                <Link classID={"text-green-500"} activeClass={"text-green-500"} onClick={() => handleSelected(index)} to={index.toString()} offset={-200} smooth={true}  className={'text-center'}>
+                                    {section}
+                                </Link>
+                            } value={index}/>
                         )
                     })}
                 </Tabs>
@@ -52,9 +51,9 @@ const FoodShop = () => {
                 return;
             }
         });
-    };*/
+    };
 
-    /*useEffect(() => {
+    useEffect(() => {
         window.addEventListener('scroll', checkSectionInView);
         return () => {
             window.removeEventListener('scroll', checkSectionInView);
@@ -97,7 +96,7 @@ const FoodShop = () => {
                     return (
                         <div key={index}>
                             {/*<h1 ref={sectionRefs[index]} className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>*/}
-                            <h1  className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>
+                            <h1 id={index.toString()} className={'text-3xl font-bold mt-5'}>{sample[index]}</h1>
 
                             <div className={'flex flex-wrap mt-10'}>
                                 <FoodCard/>

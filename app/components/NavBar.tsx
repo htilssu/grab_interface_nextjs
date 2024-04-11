@@ -45,7 +45,7 @@ const NavBar = ({addressNavbarProp}: {
                 className={`fixed top-0 w-full md:h-[88px] sm:h-[40px] ${!isScrollDown && addressNavbar ? "bg-gradient-to-b from-[#00000066] to-transparent" : "bg-white"}`}>
                 <div className={"flex justify-between items-center h-full px-40"}>
                     <div className={"text-2xl w-36 font-bold"}>
-                        <Image alt="logo" src={isScrollDown || !addressNavbar ? greenLogo.src : logo.src}/>
+                        <Image height={150} width={150} alt="logo" src={isScrollDown || !addressNavbar ? greenLogo.src : logo.src}/>
                     </div>
                     {(addressNavbar || addressNavbarProp) && <AddressInput/>}
                     <div className={"flex space-x-4"}>
@@ -77,7 +77,7 @@ const NavBar = ({addressNavbarProp}: {
                 className={`fixed top-0 w-full md:h-[88px] sm:h-[40px] ${!isScrollDown ? "bg-gradient-to-b from-[#00000066] to-transparent" : "bg-white shadow-lg"}`}>
                 <div className={"flex justify-between items-center h-full px-40"}>
                     <div className={"text-2xl w-36 font-bold"}>
-                        <Image alt="logo" src={isScrollDown ? greenLogo.src : logo.src}/>
+                        <Image height={150} width={150} alt="logo" src={isScrollDown ? greenLogo.src : logo.src}/>
                     </div>
                     <div className={"flex space-x-4"}>
                         <button

@@ -11,7 +11,9 @@ const Footer = () => {
                     <div className="">
                         <div className="mb-6">
                             <div className="">
-                                <div className="w-36"><a href=""><Image
+                                <div className="w-36"><a href="">
+                                    <Image height={150}
+                                        width={144}
                                     src={logo.src} alt="Grabfood logo"
                                     className="w-full"/></a></div>
                             </div>
@@ -56,12 +58,12 @@ const Footer = () => {
                                     <a
                                         href="https://grab.onelink.me/2695613898?pid=www.bing.com&amp;c=non-paid&amp;is_retargeting=true&amp;af_dp=grab%3A%2F%2Fopen%3FscreenType%3DGRABFOOD%26sourceID%3Dfood-grab-com%26sourceCampaignName%3DGF-WEB-VN-home-organic&amp;af_prt=food.grab.com&amp;af_web_dp=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fid647268330%3Fmt%3D8%26l%3Dvi"
                                         target="_blank" rel="noreferrer noopener">
-                                        <Image
+                                        <Image height={150} width={150}
                                             src={appleLogo.src} alt="App store logo"/>
                                     </a>
                                     <a
                                         href="https://grab.onelink.me/2695613898?pid=www.bing.com&amp;c=non-paid&amp;is_retargeting=true&amp;af_dp=grab%3A%2F%2Fopen%3FscreenType%3DGRABFOOD%26sourceID%3Dfood-grab-com%26sourceCampaignName%3DGF-WEB-VN-home-organic&amp;af_prt=food.grab.com&amp;af_web_dp=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.grabtaxi.passenger%26hl%3Dvi_VN"
-                                        target="_blank" rel="noreferrer noopener"><Image
+                                        target="_blank" rel="noreferrer noopener"><Image height={150} width={150}
                                         src={googleLogo.src} alt="Google play logo"/></a>
                                 </div>
                             </div>
