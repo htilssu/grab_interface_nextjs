@@ -1,6 +1,6 @@
-import banner from '../assets/VN-new-3.jpg';
+import banner from '../../public/VN-new-3.jpg';
 import Banner from './Banner';
-import FoodSection from "./FoodSection.tsx";
+import FoodSection from "./FoodSection";
 
 
 
