@@ -1,54 +1,9 @@
 import React, { useState } from "react";
 import CategoryItem from "@/app/components/CategoryItem";
-
-export type CategoryType = {
-  name: string;
-  img: string;
-};
-const dummyCategory: CategoryType[] = [
-  {
-    name: "Bánh mì",
-    img: "/banhmi.webp",
-  },
-  /*{
-        name: "Bún/Phở",
-        img: "/bunpho.webp"
-    },*/
-  {
-    name: "Cơm",
-    img: "/com.webp",
-  },
-  /* {
-         name: "Gà",
-         img: "/ga.webp"
-     },
-     {
-         name: "Hải sản",
-         img: "/haisan.webp"
-     },
-     {
-         name: "Kem",
-         img: "/kem.webp"
-     },
-     {
-         name: "Mì",
-         img: "/mi.webp"
-     },*/
-  {
-    name: "Cháo",
-    img: "/chao.webp",
-  },
-  {
-    name: "Hủ tiếu",
-    img: "/hutieu.webp",
-  },
-];
+import { categoryData } from "@/app/dummyData";
 
 const Category = () => {
-  const [category, setCategory] = useState([
-    ...dummyCategory,
-    ...dummyCategory,
-  ]);
+  const [category] = useState(categoryData);
 
   return (
     <div className={"md:px-40 sm:px-20 p-5 mt-10"}>

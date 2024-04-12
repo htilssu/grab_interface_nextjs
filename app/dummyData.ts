@@ -4996,3 +4996,158 @@ export const homeData = {
     },
   ],
 };
+export const categoryData = [
+  {
+    name: "Ăn Vặt",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/157/icons/eb8ea703d1f84b218b79b0f860e99425_1562559054203677203.webp",
+    description: "-",
+    shortcutID: "157",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/157/icons/eb8ea703d1f84b218b79b0f860e99425_1562559054203677203.jpeg",
+  },
+  {
+    name: "Cháo",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/40/icons/upload-photo-icon_f71f7805786348b694d2a9a886b85cee_1549034196325788582.webp",
+    description: "-",
+    shortcutID: "40",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/40/icons/upload-photo-icon_f71f7805786348b694d2a9a886b85cee_1549034196325788582.jpeg",
+  },
+  {
+    name: "Trà sữa",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/29/icons/a928e8df0b8b4dfc856ac176c2cf6ecb_1662695866769706068.webp",
+    description: "-",
+    shortcutID: "29",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/29/icons/a928e8df0b8b4dfc856ac176c2cf6ecb_1662695866769706068.jpeg",
+  },
+  {
+    name: "Cơm",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/144/icons/Rice_e191965ccd6848a3862e6a695d05983f_1547819238893335910.webp",
+    description: "-",
+    shortcutID: "144",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/144/icons/Rice_e191965ccd6848a3862e6a695d05983f_1547819238893335910.jpg",
+  },
+  {
+    name: "Gà Rán - Burger",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/62/icons/FastFood_4710e425c3d24db2aa4280aa207a22d3_1547819143037208832.webp",
+    description: "-",
+    shortcutID: "62",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/62/icons/FastFood_4710e425c3d24db2aa4280aa207a22d3_1547819143037208832.jpg",
+  },
+  {
+    name: "Gà",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/43/icons/Chicken_d4725da9243a46e79740d2e70fd28314_1547819095170793371.webp",
+    description: "-",
+    shortcutID: "43",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/43/icons/Chicken_d4725da9243a46e79740d2e70fd28314_1547819095170793371.jpg",
+  },
+  {
+    name: "Pizza",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/135/icons/Pizza_32aed38d4c1d4dbcb2fe711f0aeb6e15_1547819221409327403.webp",
+    description: "-",
+    shortcutID: "135",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/135/icons/Pizza_32aed38d4c1d4dbcb2fe711f0aeb6e15_1547819221409327403.jpg",
+  },
+  {
+    name: "Cơm tấm",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/50/icons/fcaf978fac204ecaab2c5fa0f7e6e4ce_1562559545238776223.webp",
+    description: "Cơm tấm",
+    shortcutID: "50",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.azureedge.net/cuisine/50/icons/fcaf978fac204ecaab2c5fa0f7e6e4ce_1562559545238776223.jpeg",
+  },
+  {
+    name: "Rau trộn",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/147/icons/Salad_1641af887e2b4092a81f8e27ccdac0dc_1547819244890107512.webp",
+    description: "-",
+    shortcutID: "147",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/147/icons/Salad_1641af887e2b4092a81f8e27ccdac0dc_1547819244890107512.jpg",
+  },
+  {
+    name: "Thịt",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/209/icons/upload-photo-icon_65f41b40038b4b3ea672402e609d0e96_1548908793958778523.webp",
+    description: "-",
+    shortcutID: "280",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/209/icons/upload-photo-icon_65f41b40038b4b3ea672402e609d0e96_1548908793958778523.jpeg",
+  },
+  {
+    name: "Bánh Mì",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/16/icons/upload-photo-icon_3408dc71ae96497c82a6f5fb35763840_1549033935837593141.webp",
+    description: "-",
+    shortcutID: "16",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/16/icons/upload-photo-icon_3408dc71ae96497c82a6f5fb35763840_1549033935837593141.jpeg",
+  },
+  {
+    name: "Đồ uống lạnh",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/collections/38/icons/upload-photo-icon_11130fe9f9154c09b507516072864902_1548777275151458249.webp",
+    description: "-",
+    shortcutID: "238",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.azureedge.net/collections/38/icons/upload-photo-icon_11130fe9f9154c09b507516072864902_1548777275151458249.jpeg",
+  },
+  {
+    name: "Mì Ý",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/130/icons/upload-photo-icon_5175b157c8114e51898b264e1173fafb_1548303610212783174.webp",
+    description: "Mì Ý",
+    shortcutID: "130",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/130/icons/upload-photo-icon_5175b157c8114e51898b264e1173fafb_1548303610212783174.jpeg",
+  },
+  {
+    name: "Hiso Party",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/collections/36/icons/upload-photo-icon_e816de4ec50a4e7a95fc6cc52e3072cd_1548575711684762474.webp",
+    description: "-",
+    shortcutID: "236",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.azureedge.net/collections/36/icons/upload-photo-icon_e816de4ec50a4e7a95fc6cc52e3072cd_1548575711684762474.jpeg",
+  },
+  {
+    name: "Weekend Treats",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/collections/68/icons/upload-photo-icon_3d16a293ac324b7e9aed94d783a57864_1548575050539497623.webp",
+    description: "initiative for Weekend Deals",
+    shortcutID: "268",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.azureedge.net/collections/68/icons/upload-photo-icon_3d16a293ac324b7e9aed94d783a57864_1548575050539497623.jpeg",
+  },
+  {
+    name: "Hủ tiếu",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/83/icons/cedda467431a49bd88fb1fdf40a4c4a0_1562559607379193479.webp",
+    description: "Hủ tiếu",
+    shortcutID: "83",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/83/icons/cedda467431a49bd88fb1fdf40a4c4a0_1562559607379193479.jpeg",
+  },
+  {
+    name: "Gà rán",
+    imageURL:
+      "https://food-cms.grab.com/compressed_webp/cuisine/69/icons/FriedChicken_4251b520449049528751b74b4d05ffa1_1547819155005255038.webp",
+    description: "-",
+    shortcutID: "69",
+    imageURLFallback:
+      "https://d1sag4ddilekf6.cloudfront.net/cuisine/69/icons/FriedChicken_4251b520449049528751b74b4d05ffa1_1547819155005255038.jpg",
+  },
+];
