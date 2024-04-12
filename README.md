@@ -1,7 +1,7 @@
-
 # Grab Food Interface Clone
 
 This is a clone of the Grab Food interface.
+
 > <h3>🚧 Under Construction 🚧</h3>
 > This project is still under construction and is not yet ready for use.
 > <br>
@@ -16,7 +16,8 @@ This is a clone of the Grab Food interface.
 - ESLint
 - Prettier
 
-### Package manager: 
+### Package manager:
+
 - pnpm
 
 ## Install dependencies:

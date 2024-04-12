@@ -1,13 +1,15 @@
-import {createContext, FC, ReactNode, useContext, useState} from "react";
+import { createContext, FC, ReactNode, useContext, useState } from "react";
 
-const Context = createContext<any>({} );
+const Context = createContext<any>({});
 export const useNavbarContext = () => useContext(Context);
-export const NavbarProvider: FC<{ children?: ReactNode | undefined }> = props => {
-    const [addressNavbar, setAddressNavbar] = useState(false)
+export const NavbarProvider: FC<{ children?: ReactNode | undefined }> = (
+  props,
+) => {
+  const [addressNavbar, setAddressNavbar] = useState(false);
 
-    return (
-        <Context.Provider value={{setAddressNavbar, addressNavbar}}>
-            {props.children}
-        </Context.Provider>
-    );
+  return (
+    <Context.Provider value={{ setAddressNavbar, addressNavbar }}>
+      {props.children}
+    </Context.Provider>
+  );
 };
