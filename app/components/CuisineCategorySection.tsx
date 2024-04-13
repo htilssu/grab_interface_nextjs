@@ -15,13 +15,21 @@ const CuisineCategorySection = () => {
 
   useEffect(() => {
     axios
-      .post("https://portal.grab.com/foodweb/v2/search", {
-        latlng: "10.816304365441667,106.71102025644655",
-        keyword: "gà ta",
-        offset: 0,
-        pageSize: 32,
-        countryCode: "VN",
-      })
+      .post(
+        "https://portal.grab.com/foodweb/v2/search",
+        {
+          latlng: "10.816304365441667,106.71102025644655",
+          keyword: "gà ta",
+          offset: 0,
+          pageSize: 32,
+          countryCode: "VN",
+        },
+        {
+          headers: {
+            host: "portal.grab.com",
+          },
+        },
+      )
       .then((r) => {
         console.log(r.data);
       });
@@ -32,7 +40,6 @@ const CuisineCategorySection = () => {
       <div className={"px-5 md:px-40"}>
         <SearchSection />
 
-        {/*@ts-ignore*/}
         <Swiper
           breakpoints={{
             320: {

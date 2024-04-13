@@ -122,7 +122,7 @@ const FoodCard = (food: FoodCardProps) => {
                 <FaTrashCan className={"text-gray-400"} />
               )}
             </button>
-            <span>{quantity}</span>
+            <span className={"md:text-sm px-1"}>{quantity}</span>
             <button onClick={increaseQuantity}>
               <FaPlus className={"text-gray-400"} />
             </button>
