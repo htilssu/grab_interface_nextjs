@@ -1,4 +1,5 @@
 import "./globals.css";
+import "swiper/css";
 import React from "react";
 import { Metadata, Viewport } from "next";
 

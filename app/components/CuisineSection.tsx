@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import CategoryItem from "@/app/components/CategoryItem";
+import CuisineItem from "@/app/components/CategoryItem";
 import { categoryData } from "@/app/dummyData";
 
-const Category = () => {
+const CuisineSection = () => {
   const [category] = useState(categoryData);
 
   return (
@@ -14,7 +14,7 @@ const Category = () => {
       <div className="">
         <div className={"flex flex-wrap"}>
           {category.map((item, index) => {
-            return <CategoryItem category={item} key={index} />;
+            return <CuisineItem category={item} key={index} />;
           })}
         </div>
       </div>
@@ -22,4 +22,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default CuisineSection;

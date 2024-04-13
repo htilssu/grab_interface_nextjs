@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PromotionCard from "./PromotionCard";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 
 const PromotionSection = ({
   className,
@@ -53,7 +52,7 @@ const PromotionSection = ({
         </h2>
 
         <Swiper
-          className={"mt-10"}
+          className={"mt-10 items-stretch"}
           direction={"horizontal"}
           breakpoints={{
             320: {

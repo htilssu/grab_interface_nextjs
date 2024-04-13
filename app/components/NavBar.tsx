@@ -2,14 +2,19 @@ import logo from "../../public/logo-grabfood-white2.svg";
 import greenLogo from "../../public/logo-grabfood2.svg";
 import { useEffect, useState } from "react";
 import { CiShoppingBasket } from "react-icons/ci";
-import { Avatar } from "@mui/material";
+import { Avatar, Badge } from "@mui/material";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavbarContext } from "@/app/context/NavBarContext";
 import Image from "next/image";
+import Link from "next/link";
+import { CartContext } from "@/app/context/CartContext";
+import _ from "lodash";
 
 const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
   const { addressNavbar } = useNavbarContext();
   const [isScrollDown, setIsScrollDown] = useState(false);
+  const { cartItem, total } = CartContext();
+
   const scrollStyle =
     !isScrollDown && !addressNavbarProp
       ? "text-green-500 bg-white"
@@ -43,15 +48,51 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         <div
           className={"flex justify-between items-center h-full p-5 md:px-40"}
         >
-          <div className={"p-5"}>
-            <Image height={150} width={150} alt="logo" src={greenLogo.src} />
-          </div>
+          <Link href={"/"}>
+            <div className={"p-5"}>
+              <Image height={150} width={150} alt="logo" src={greenLogo.src} />
+            </div>
+          </Link>
           <div className={"flex space-x-4 items-center"}>
-            <button
-              className={`${scrollStyle} h-8 w-8 md:h-10 md:w-10 p-2 rounded`}
+            <Badge
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              badgeContent={
+                cartItem.length > 0 && (
+                  <>
+                    <div
+                      className={
+                        "rounded-full border-[1px] p-2 bg-white h-5 border-green-600 flex items-center justify-center"
+                      }
+                    >
+                      {_.reduce(
+                        cartItem,
+                        (sum, item) => sum + item.quantity,
+                        0,
+                      )}
+                    </div>
+                  </>
+                )
+              }
             >
-              <CiShoppingBasket className={`w-full h-full font-bold`} />
-            </button>
+              <button
+                className={`${scrollStyle} items-center gap-1 flex h-8 md:h-10 p-2 rounded`}
+              >
+                <CiShoppingBasket className={`w-full h-full font-bold`} />
+                {total !== 0 && (
+                  <div className={"text-sm"}>
+                    <span className={"text-nowrap font-medium"}>
+                      {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      }).format(total)}
+                    </span>
+                  </div>
+                )}
+              </button>
+            </Badge>
             <Avatar
               className={`border-2 w-8 h-8 md:h-10 md:w-10 ${isScrollDown && "border-green-500"} ${scrollStyle}`}
             />
@@ -77,17 +118,14 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         <div
           className={"flex justify-between items-center h-full p-5 md:px-40"}
         >
-          <div className={"text-2xl w-36 font-bold hidden sm:block"}>
-            <Image
-              height={150}
-              width={150}
-              alt="logo"
-              src={isScrollDown ? greenLogo.src : logo.src}
-            />
-          </div>
-          <div className={"sm:hidden block p-5"}>
-            <Image height={150} width={150} alt="logo" src={greenLogo.src} />
-          </div>
+          <Link className={"w-36"} href={"/"}>
+            <div className={"text-2xl w-36 font-bold hidden sm:block"}>
+              <Image alt="logo" src={isScrollDown ? greenLogo : logo} />
+            </div>
+            <div className={"sm:hidden block p-5"}>
+              <Image alt="logo" src={greenLogo} />
+            </div>
+          </Link>
           <div className={"flex space-x-4 items-center"}>
             <button
               className={`${scrollStyle} h-8 w-8 md:h-10 md:w-10 p-2 rounded`}

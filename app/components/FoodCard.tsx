@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaMinus, FaPlus, FaTrashCan } from "react-icons/fa6";
 import defaultImage from "../../public/com.webp";
 import Image from "next/image";
+import { CartContext, CartContextType } from "@/app/context/CartContext";
+import _ from "lodash";
 
 export type FoodCardProps = {
   ID: string;
@@ -73,19 +75,35 @@ export type FoodCardProps = {
   imgHrefFallback: string;
 };
 
-const FoodCard = (food: FoodCardProps, props: any) => {
-  console.log(props);
-  const [quantity, setQuantity] = useState<number>(0);
+const FoodCard = (food: FoodCardProps) => {
+  const [quantity, setQuantity] = useState<number>(-1);
+  const { cartItem, updateCartItem } = CartContext();
+
+  useEffect(() => {
+    const find: CartContextType = _.find(
+      cartItem,
+      (cartItem: CartContextType) => cartItem.cartItem.ID === food.ID,
+    );
+    if (find) {
+      setQuantity(find.quantity);
+    }
+  }, [cartItem, food.ID]);
 
   function decreaseQuantity() {
     if (quantity > 0) {
-      setQuantity(quantity - 1);
+      setQuantity((quantity) => quantity - 1);
     }
   }
 
   function increaseQuantity() {
-    setQuantity(quantity + 1);
+    setQuantity((quantity) => {
+      return quantity < 0 ? 1 : quantity + 1;
+    });
   }
+
+  useEffect(() => {
+    updateCartItem(food, quantity);
+  }, [food, quantity, updateCartItem]);
 
   const FoodQuantityControl = () => {
     if (quantity > 0) {

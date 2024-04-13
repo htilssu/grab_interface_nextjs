@@ -51,27 +51,12 @@ const PromotionCard = ({ promotion }: PromotionCardProps) => {
             alt={"food"}
           />
           <CardContent>
-            <Typography
-              variant="h6"
-              color="black"
-              align={"left"}
-              sx={{
-                fontWeight: "bold",
-              }}
-            >
+            <div className={"font-bold md:text-base text-xl"}>
               {promotion?.name}
-            </Typography>
-            <Typography
-              variant="body1"
-              align="left"
-              sx={{
-                marginTop: "1rem",
-                color: "#696969",
-              }}
+            </div>
+            <span
+              className={"flex md:text-sm items-center justify-between gap-2"}
             >
-              {promotion?.cuisine[0]}
-            </Typography>
-            <span className={"flex items-center justify-between gap-2"}>
               <Rating rating={promotion?.rating} />
             </span>
             <Distance

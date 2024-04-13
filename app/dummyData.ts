@@ -5151,3 +5151,71 @@ export const categoryData = [
       "https://d1sag4ddilekf6.cloudfront.net/cuisine/69/icons/FriedChicken_4251b520449049528751b74b4d05ffa1_1547819155005255038.jpg",
   },
 ];
+export const cuisineData = {
+  "5047": {
+    id: "5047",
+    name: "Gần tôi",
+    description: "Nearby tile, SG USE ONLY",
+    index: 0,
+  },
+  "5463": {
+    id: "5463",
+    name: "5 ưu đãi cùng 1 đơn",
+    description: "Deal chồng deal",
+    index: 0,
+  },
+  "6021": {
+    id: "6021",
+    name: "Quán mới giá hời",
+    description: "Giảm thêm 20K",
+    index: 0,
+  },
+  "6161": {
+    id: "6161",
+    name: "Tạp hóa online",
+    description: "Luôn mở 24/7",
+    index: 1,
+  },
+  "6535": {
+    id: "6535",
+    name: "Quán ngon đặc tuyển",
+    description: "Ngon phải thử!",
+    index: 0,
+  },
+  "10860": {
+    id: "10860",
+    name: "Bao ship 0Đ",
+    description: "Ship 0Đ cho đơn 70K",
+    index: 0,
+  },
+  "12079": {
+    id: "12079",
+    name: "Gian hàng đồng giá",
+    description: "Đồng giá dưới 25K",
+    index: 1,
+  },
+  "12080": {
+    id: "12080",
+    name: "Tuần lễ món cơm",
+    description: "Tặng món 0đ",
+    index: 1,
+  },
+  "12472": {
+    id: "12472",
+    name: "Đổi vị món tối",
+    description: "Tặng món ăn kèm",
+    index: 0,
+  },
+  "12965": {
+    id: "12965",
+    name: "Deal chồng deal",
+    description: "Áp 4 ưu đãi cho 1 đơn",
+    index: 1,
+  },
+  "14019": {
+    id: "14019",
+    name: "Quán trứ danh",
+    description: "Nhất định phải ăn",
+    index: 1,
+  },
+};

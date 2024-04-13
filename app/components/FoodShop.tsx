@@ -7,6 +7,13 @@ import FoodCard from "@/app/components/FoodCard";
 import { styled, Tab, Tabs } from "@mui/material";
 import { Events, Link, scrollSpy } from "react-scroll";
 import { sampleShopData } from "@/app/dummyData";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: sampleShopData.merchant.name,
+  };
+}
 
 const GrabTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
