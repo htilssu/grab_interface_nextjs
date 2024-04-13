@@ -48,7 +48,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         <div
           className={"flex justify-between items-center h-full p-5 md:px-40"}
         >
-          <Link href={"/"}>
+          <Link scroll={false} href={"/"}>
             <div className={"p-5"}>
               <Image height={150} width={150} alt="logo" src={greenLogo.src} />
             </div>
@@ -118,7 +118,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         <div
           className={"flex justify-between items-center h-full p-5 md:px-40"}
         >
-          <Link className={"w-36"} href={"/"}>
+          <Link scroll={false} className={"w-36"} href={"/"}>
             <div className={"text-2xl w-36 font-bold hidden sm:block"}>
               <Image alt="logo" src={isScrollDown ? greenLogo : logo} />
             </div>

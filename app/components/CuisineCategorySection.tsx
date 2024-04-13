@@ -7,38 +7,57 @@ import { cuisineData } from "@/app/dummyData";
 import _ from "lodash";
 import Image from "next/image";
 import axios from "axios";
+import { FoodSearchResult } from "@/app/api/food/search/route";
+import Link from "next/link";
+import { CategorySearchResult } from "@/app/api/food/category/route";
+import MerchantCard from "@/app/components/MerchantCard";
 
 const key = Object.keys(cuisineData);
 
 const CuisineCategorySection = () => {
   const [selected, setSelected] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [shopData, setShopData] = useState<
+    FoodSearchResult | CategorySearchResult
+  >();
 
   useEffect(() => {
-    axios
-      .post(
-        "https://portal.grab.com/foodweb/v2/search",
-        {
+    if (searchText !== "") {
+      axios
+        .post(origin + "/api/food/search", {
           latlng: "10.816304365441667,106.71102025644655",
-          keyword: "gà ta",
+          keyword: searchText,
           offset: 0,
           pageSize: 32,
           countryCode: "VN",
-        },
-        {
-          headers: {
-            host: "portal.grab.com",
-          },
-        },
+        })
+        .then((res) => {
+          setShopData(res.data);
+        })
+        .catch((err) => {
+          setShopData(undefined);
+        });
+    }
+  }, [searchText]);
+
+  useEffect(() => {
+    axios
+      .get(
+        origin +
+          `/api/food/category?latlng=10.816304365441667,106.71102025644655&categoryShortcutID=${selected}&offset=0&pageSize=32&countryCode=VN`,
       )
-      .then((r) => {
-        console.log(r.data);
+      .then((res) => {
+        setShopData(res.data);
+      })
+      .catch(() => {
+        setShopData(undefined);
       });
   }, [selected]);
 
   return (
     <div className={"md:mt-[88px] mt-[50px] p-5 md:pt-10"}>
       <div className={"px-5 md:px-40"}>
-        <SearchSection />
+        <SearchSection setSearch={setSearchText} />
 
         <Swiper
           breakpoints={{
@@ -78,21 +97,44 @@ const CuisineCategorySection = () => {
           })}
         </Swiper>
 
-        <div>
-          <div
-            className={
-              "flex mt-10 md:py-28 items-center justify-center flex-col"
-            }
-          >
-            <Image src={chickBowl} alt={"chick-bowl"} />
-            <h1 className={"font-bold"}>
-              Rất tiếc, hiện không có nhà hàng nào
-            </h1>
-            <p className={"text-gray-600"}>
-              Vui lòng làm mới trang để giải quyết sự cố.
-            </p>
+        {!shopData && (
+          <div>
+            <div
+              className={
+                "flex mt-10 md:py-28 text-center items-center justify-center flex-col"
+              }
+            >
+              <Image src={chickBowl} alt={"chick-bowl"} />
+              <h1 className={"font-bold mt-5"}>
+                Rất tiếc, hiện không có nhà hàng nào
+              </h1>
+              <p className={"text-gray-600"}>
+                Vui lòng làm mới trang để giải quyết sự cố.
+              </p>
+            </div>
           </div>
-        </div>
+        )}
+
+        {shopData && (
+          <div className={"flex items-stretch mt-5 flex-wrap"}>
+            {_.map(
+              shopData.searchResult.searchMerchants as [],
+              (value: any, index) => {
+                return (
+                  <div className={"md:w-1/4 md:p-2 sm:w-1/2 w-full p-5"}>
+                    <MerchantCard
+                      merchant={{
+                        name: value.address.name,
+                        estimatedDeliveryTime: value.estimatedDeliveryTime,
+                        ...value.merchantBrief,
+                      }}
+                    />
+                  </div>
+                );
+              },
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -113,7 +155,6 @@ interface CuisineCategoryItemProps {
 
 const CuisineCategoryItem = ({
   cuisine,
-  isSelected,
   setSelected,
 }: CuisineCategoryItemProps) => {
   return (
@@ -122,23 +163,28 @@ const CuisineCategoryItem = ({
         setSelected(cuisine.id);
       }}
     >
-      <div
-        className={`relative overflow-hidden rounded-md ${isSelected && "border-[1px] border-green-600"}`}
+      <Link
+        scroll={false}
+        href={`/cuisines/${cuisine.name.toLowerCase().replaceAll(" ", "-")}/${cuisine.id}`}
       >
-        <Image src={cuisineBackGroundImage} alt={"cuisine"} />
         <div
-          className={
-            "absolute z-0 top-0 left-0 w-full h-full bg-black opacity-50"
-          }
-        ></div>
-        <div
-          className={
-            "absolute z-10 text-white flex justify-center items-center top-0 left-0 w-full h-full"
-          }
+          className={`relative overflow-hidden hover:cursor-pointer rounded-xl border-[3px] hover:border-green-600 border-transparent`}
         >
-          {cuisine.name}
+          <Image src={cuisineBackGroundImage} alt={"cuisine"} />
+          <div
+            className={
+              "absolute z-0 top-0 left-0 w-full h-full bg-black opacity-50"
+            }
+          ></div>
+          <div
+            className={
+              "absolute z-10 text-white flex justify-center items-center top-0 left-0 w-full h-full"
+            }
+          >
+            {cuisine.name}
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

@@ -17,7 +17,10 @@ export type CategoryType = {
 const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
     <div className={"md:w-1/4 w-full sm:w-1/2 p-3"}>
-      <Link href={"/cuisines"}>
+      <Link
+        scroll={false}
+        href={`/cuisines/${category.name.toLowerCase().replaceAll(" ", "-")}/${category.shortcutID}`}
+      >
         <Card className={"hover:cursor-pointer"}>
           <CardMedia component={"img"} src={category.imageURL} />
           <CardContent>

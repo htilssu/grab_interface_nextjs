@@ -7,7 +7,7 @@ import FoodCard from "@/app/components/FoodCard";
 import { styled, Tab, Tabs } from "@mui/material";
 import { Events, Link, scrollSpy } from "react-scroll";
 import { sampleShopData } from "@/app/dummyData";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {

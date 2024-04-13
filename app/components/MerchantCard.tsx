@@ -1,22 +1,10 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia } from "@mui/material";
 import Distance from "@/app/components/Distance";
 import Rating from "@/app/components/Rating";
 import VoucherTag from "@/app/components/VoucherTag";
 
 interface PromotionCardProps {
-  promotion?: {
-    openHours: {
-      thu: string;
-      tue: string;
-      displayedHours: string;
-      wed: string;
-      sat: string;
-      fri: string;
-      sun: string;
-      mon: string;
-      open: boolean;
-    };
-    specialItemType: null;
+  merchant: {
     address: string;
     city: string;
     hasPromo: boolean;
@@ -39,7 +27,7 @@ interface PromotionCardProps {
   };
 }
 
-const PromotionCard = ({ promotion }: PromotionCardProps) => {
+const MerchantCard = ({ merchant }: PromotionCardProps) => {
   return (
     <div className={"hover:cursor-pointer"}>
       <a href={`/food?q=${1}`}>
@@ -47,26 +35,26 @@ const PromotionCard = ({ promotion }: PromotionCardProps) => {
           <CardMedia
             component={"img"}
             height={"140"}
-            src={promotion?.photoHref}
+            src={merchant?.photoHref}
             alt={"food"}
           />
           <CardContent>
             <div className={"font-bold md:text-base text-xl"}>
-              {promotion?.name}
+              {merchant?.name}
             </div>
             <span
               className={"flex md:text-sm items-center justify-between gap-2"}
             >
-              <Rating rating={promotion?.rating} />
+              <Rating rating={merchant?.rating} />
             </span>
             <Distance
               distance={{
-                distance: promotion!.distanceInKm + " km",
-                time: promotion!.estimatedDeliveryTime + " phút",
+                distance: merchant!.distanceInKm + " km",
+                time: merchant!.estimatedDeliveryTime + " phút",
               }}
             />
             <div className={"flex items-center gap-3 mt-2"}>
-              <VoucherTag voucher={promotion?.promoDescription} />
+              <VoucherTag voucher={merchant?.promoDescription} />
             </div>
           </CardContent>
         </Card>
@@ -75,4 +63,4 @@ const PromotionCard = ({ promotion }: PromotionCardProps) => {
   );
 };
 
-export default PromotionCard;
+export default MerchantCard;

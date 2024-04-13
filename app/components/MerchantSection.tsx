@@ -1,8 +1,8 @@
 import { useState } from "react";
-import PromotionCard from "./PromotionCard";
+import MerchantCard from "./MerchantCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const PromotionSection = ({
+const MerchantSection = ({
   className,
   promotion,
 }: {
@@ -74,7 +74,7 @@ const PromotionSection = ({
           {promotion?.map((value, index) => {
             return (
               <SwiperSlide key={index}>
-                <PromotionCard promotion={value} />
+                <MerchantCard merchant={value} />
               </SwiperSlide>
             );
           })}
@@ -96,4 +96,4 @@ const PromotionSection = ({
   );
 };
 
-export default PromotionSection;
+export default MerchantSection;
