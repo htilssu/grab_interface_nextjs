@@ -189,7 +189,7 @@ const FoodCard = (food: FoodCardProps) => {
             </div>
           </div>
           <div
-            className={`absolute ${quantity !== 0 ? "" : "hidden"} right-[-1px] h-[101%] bg-green-500 w-1 top-0`}
+            className={`absolute ${quantity > 0 ? "" : "hidden"} right-[-1px] h-[101%] bg-green-500 w-1 top-0`}
           ></div>
         </div>
       </div>
