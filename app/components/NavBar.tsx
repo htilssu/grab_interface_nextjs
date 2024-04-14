@@ -50,8 +50,14 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
           className={"flex justify-between items-center h-full p-5 md:px-40"}
         >
           <Link scroll={false} href={"/"}>
-            <div className={"p-5"}>
-              <Image height={150} width={150} alt="logo" src={greenLogo.src} />
+            <div>
+              <Image
+                className={"p-5 md:p-1"}
+                height={150}
+                width={150}
+                alt="logo"
+                src={greenLogo.src}
+              />
             </div>
           </Link>
           <AddressInput className={"md:px-2 hidden lg:flex"} />
@@ -117,7 +123,9 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         }}
         className={`fixed top-0 w-full md:h-[88px] h-[50px] ${!isScrollDown ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white shadow-lg"}`}
       >
-        <div className={"flex justify-between items-center h-full md:px-40"}>
+        <div
+          className={"flex justify-between items-center h-full p-5 md:px-40"}
+        >
           <Link scroll={false} className={"w-36"} href={"/"}>
             <div className={"text-2xl w-36 font-bold hidden sm:block"}>
               <Image alt="logo" src={isScrollDown ? greenLogo : logo} />
@@ -127,11 +135,45 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
             </div>
           </Link>
           <div className={"flex space-x-4 items-center"}>
-            <button
-              className={`${scrollStyle} h-8 w-8 md:h-10 md:w-10 p-2 rounded`}
+            <Badge
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              badgeContent={
+                cartItem.length > 0 && (
+                  <>
+                    <div
+                      className={
+                        "rounded-full border-[1px] p-2 bg-white h-5 border-green-600 flex items-center justify-center"
+                      }
+                    >
+                      {_.reduce(
+                        cartItem,
+                        (sum, item) => sum + item.quantity,
+                        0,
+                      )}
+                    </div>
+                  </>
+                )
+              }
             >
-              <CiShoppingBasket className={`w-full h-full font-bold`} />
-            </button>
+              <button
+                className={`${scrollStyle} items-center gap-1 flex h-8 md:h-10 p-2 rounded`}
+              >
+                <CiShoppingBasket className={`w-full h-full font-bold`} />
+                {total !== 0 && (
+                  <div className={"text-sm hidden sm:flex"}>
+                    <span className={"text-nowrap font-medium"}>
+                      {new Intl.NumberFormat("vi-VN", {
+                        style: "currency",
+                        currency: "VND",
+                      }).format(total)}
+                    </span>
+                  </div>
+                )}
+              </button>
+            </Badge>
             <Avatar
               className={`border-2 w-8 h-8 md:h-10 md:w-10 ${isScrollDown && "border-green-500"} ${scrollStyle}`}
             />
