@@ -8,9 +8,10 @@ import _ from "lodash";
 import Image from "next/image";
 import axios from "axios";
 import { FoodSearchResult } from "@/app/api/food/search/route";
-import Link from "next/link";
 import { CategorySearchResult } from "@/app/api/food/category/route";
 import MerchantCard from "@/app/components/MerchantCard";
+import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const key = Object.keys(cuisineData);
 
@@ -20,6 +21,18 @@ const CuisineCategorySection = () => {
   const [shopData, setShopData] = useState<
     FoodSearchResult | CategorySearchResult
   >();
+
+  const params = useParams();
+  const router = useRouter();
+
+  /*useEffect(() => {
+    if (!params || params.slug.length != 2) {
+      router.push("/not-found");
+    }
+    if (params.slug) {
+      setSelected(params.slug);
+    }
+  }, [params,]);*/
 
   useEffect(() => {
     if (searchText !== "") {
@@ -41,22 +54,24 @@ const CuisineCategorySection = () => {
   }, [searchText]);
 
   useEffect(() => {
-    axios
-      .get(
-        origin +
-          `/api/food/category?latlng=10.816304365441667,106.71102025644655&categoryShortcutID=${selected}&offset=0&pageSize=32&countryCode=VN`,
-      )
-      .then((res) => {
-        setShopData(res.data);
-      })
-      .catch(() => {
-        setShopData(undefined);
-      });
+    if (selected !== "") {
+      axios
+        .get(
+          origin +
+            `/api/food/category?latlng=10.816304365441667,106.71102025644655&categoryShortcutID=${selected}&offset=0&pageSize=32&countryCode=VN`,
+        )
+        .then((res) => {
+          setShopData(res.data);
+        })
+        .catch(() => {
+          setShopData(undefined);
+        });
+    }
   }, [selected]);
 
   return (
-    <div className={"md:mt-[88px] mt-[50px] p-5 md:pt-10"}>
-      <div className={"px-5 md:px-40"}>
+    <div className={"md:mt-[88px] mt-[50px] p-5 md:px-40 md:pt-10"}>
+      <div>
         <SearchSection setSearch={setSearchText} />
 
         <Swiper
@@ -121,7 +136,7 @@ const CuisineCategorySection = () => {
               shopData.searchResult.searchMerchants as [],
               (value: any, index) => {
                 return (
-                  <div className={"md:w-1/4 md:p-2 sm:w-1/2 w-full p-5"}>
+                  <div className={"md:w-1/4 md:p-2 sm:w-1/2 w-full"}>
                     <MerchantCard
                       merchant={{
                         name: value.address.name,
@@ -157,6 +172,7 @@ const CuisineCategoryItem = ({
   cuisine,
   setSelected,
 }: CuisineCategoryItemProps) => {
+  const router = useRouter();
   return (
     <div
       onClick={() => {
@@ -185,6 +201,31 @@ const CuisineCategoryItem = ({
           </div>
         </div>
       </Link>
+      {/*<div
+        onClick={() => {
+          router.push(
+            `/cuisines/${cuisine.name.toLowerCase().replaceAll(" ", "-")}/${cuisine.id}`,
+          );
+        }}
+      >
+        <div
+          className={`relative overflow-hidden hover:cursor-pointer rounded-xl border-[3px] hover:border-green-600 border-transparent`}
+        >
+          <Image src={cuisineBackGroundImage} alt={"cuisine"} />
+          <div
+            className={
+              "absolute z-0 top-0 left-0 w-full h-full bg-black opacity-50"
+            }
+          ></div>
+          <div
+            className={
+              "absolute z-10 text-white flex justify-center items-center top-0 left-0 w-full h-full"
+            }
+          >
+            {cuisine.name}
+          </div>
+        </div>
+      </div>*/}
     </div>
   );
 };

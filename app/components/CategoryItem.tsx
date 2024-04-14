@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardMedia } from "@mui/material";
 import Link from "next/link";
+import { router } from "next/client";
 
 type CategoryItemProps = {
   category: CategoryType;
@@ -16,7 +17,7 @@ export type CategoryType = {
 
 const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
-    <div className={"md:w-1/4 w-full sm:w-1/2 p-3"}>
+    <div className={"md:w-1/4 w-full sm:w-1/2 mt-3 md:p-3"}>
       <Link
         scroll={false}
         href={`/cuisines/${category.name.toLowerCase().replaceAll(" ", "-")}/${category.shortcutID}`}
