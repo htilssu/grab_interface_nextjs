@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CuisineItem from "@/app/components/CategoryItem";
+import CuisineItem from "@/app/components/CuisineItem";
 import { categoryData } from "@/app/dummyData";
 
 const CuisineSection = () => {
