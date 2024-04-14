@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CartContext } from "@/app/context/CartContext";
 import _ from "lodash";
+import AddressInput from "@/app/components/AddressInput";
 
 const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
   const { addressNavbar } = useNavbarContext();
@@ -43,7 +44,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
           transition: "background-color 0.5s",
           zIndex: 1000,
         }}
-        className={`fixed top-0 w-full md:h-[88px] h-[50px] ${!isScrollDown && addressNavbar ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white"}`}
+        className={`fixed top-0 w-full md:h-[88px] h-[60px] ${!isScrollDown && addressNavbar ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white"}`}
       >
         <div
           className={"flex justify-between items-center h-full p-5 md:px-40"}
@@ -53,6 +54,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
               <Image height={150} width={150} alt="logo" src={greenLogo.src} />
             </div>
           </Link>
+          <AddressInput className={"md:px-2 hidden lg:flex"} />
           <div className={"flex space-x-4 items-center"}>
             <Badge
               anchorOrigin={{
@@ -82,7 +84,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
               >
                 <CiShoppingBasket className={`w-full h-full font-bold`} />
                 {total !== 0 && (
-                  <div className={"text-sm"}>
+                  <div className={"text-sm hidden sm:flex"}>
                     <span className={"text-nowrap font-medium"}>
                       {new Intl.NumberFormat("vi-VN", {
                         style: "currency",
@@ -115,9 +117,7 @@ const NavBar = ({ addressNavbarProp }: { addressNavbarProp?: boolean }) => {
         }}
         className={`fixed top-0 w-full md:h-[88px] h-[50px] ${!isScrollDown ? "sm:bg-gradient-to-b sm:from-[#00000066] sm:to-transparent bg-white sm:bg-transparent" : "bg-white shadow-lg"}`}
       >
-        <div
-          className={"flex justify-between items-center h-full p-5 md:px-40"}
-        >
+        <div className={"flex justify-between items-center h-full md:px-40"}>
           <Link scroll={false} className={"w-36"} href={"/"}>
             <div className={"text-2xl w-36 font-bold hidden sm:block"}>
               <Image alt="logo" src={isScrollDown ? greenLogo : logo} />
