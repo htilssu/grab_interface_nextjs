@@ -23,7 +23,7 @@ export default function QuestionSection() {
           className={
             !hidden
               ? "hidden"
-              : "p-3 text-[#676767]  border-[1px] rounded-md border-[#676767] font-bold mt-3 mb-3 hover:border-green-grab hover:text-green-grab w-full"
+              : "p-2 text-[#676767]  border-[1px] rounded-md border-[#676767] font-bold mt-3 mb-3 hover:border-green-grab hover:text-green-grab w-full"
           }
         >
           Read more
@@ -31,7 +31,7 @@ export default function QuestionSection() {
       </div>
       <div className={hidden ? "hidden" : undefined}>
         <hr />
-        <Title content={"How to order Grabfood online?"}></Title>
+        <Title content={"How to order GrabFood online?"}></Title>
         <p className="text-sm">
           Here is the easiest way to order food from GrabFood in Singapore:
         </p>

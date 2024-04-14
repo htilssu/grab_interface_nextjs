@@ -9,7 +9,7 @@ interface DistanceProps {
 const Distance = ({ distance, className }: DistanceProps) => {
   return (
     <div className={className}>
-      <div className={"flex items-center text-base md:text-sm gap-2"}>
+      <div className={"flex items-center text-sm gap-2"}>
         <CiClock2 />
         <span>{distance.time}</span>
         <span>•</span>

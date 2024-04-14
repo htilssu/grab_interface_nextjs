@@ -9,7 +9,7 @@ const VoucherTag = ({ voucher }: VoucherTagProps) => {
   return (
     <div className={"flex items-center md:text-sm text-base gap-3"}>
       <CiShoppingTag className={"w-6 h-6 text-green-600"} />
-      <span>{voucher}</span>
+      <span className={"text-sm"}>{voucher}</span>
     </div>
   );
 };

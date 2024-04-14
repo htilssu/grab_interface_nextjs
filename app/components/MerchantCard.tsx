@@ -40,11 +40,13 @@ const MerchantCard = ({ merchant }: PromotionCardProps) => {
             alt={"food"}
           />
           <CardContent className={"flex flex-col h-full justify-between"}>
-            <div className={"font-bold md:text-base text-xl"}>
+            <div className={"font-bold md:text-base text-md"}>
               {merchant?.name}
             </div>
             <span
-              className={"flex md:text-sm items-center justify-between gap-2"}
+              className={
+                "flex md:text-sm items-center text-sm justify-between gap-2"
+              }
             >
               <Rating rating={merchant?.rating} />
             </span>

@@ -17,7 +17,7 @@ export type CategoryType = {
 
 const CuisineItem = ({ category }: CategoryItemProps) => {
   return (
-    <div className={"md:w-1/4 w-full sm:w-1/2 mt-3 md:p-3"}>
+    <div className={"md:w-1/4 w-1/2 p-1 mt-3 md:p-3"}>
       <Link
         href={`/cuisines/${category.name.toLowerCase().replaceAll(" ", "-")}/${category.shortcutID}`}
       >

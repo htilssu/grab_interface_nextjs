@@ -124,7 +124,9 @@ const CuisineCategorySection = () => {
                 return (
                   <div
                     key={index}
-                    className={"md:w-1/4 md:p-2 sm:w-1/2 w-full"}
+                    className={
+                      "md:w-1/4 p-1 md:p-2 sm:w-1/2 w-full mt-5 sm:mt-0"
+                    }
                   >
                     <MerchantCard
                       merchant={{
