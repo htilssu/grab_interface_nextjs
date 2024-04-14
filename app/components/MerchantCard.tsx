@@ -2,6 +2,7 @@ import { Card, CardContent, CardMedia } from "@mui/material";
 import Distance from "@/app/components/Distance";
 import Rating from "@/app/components/Rating";
 import VoucherTag from "@/app/components/VoucherTag";
+import Link from "next/link";
 
 interface PromotionCardProps {
   merchant: {
@@ -29,16 +30,16 @@ interface PromotionCardProps {
 
 const MerchantCard = ({ merchant }: PromotionCardProps) => {
   return (
-    <div className={"hover:cursor-pointer"}>
-      <a href={`/food?q=${1}`}>
-        <Card variant="outlined">
+    <div className={"hover:cursor-pointer h-full"}>
+      <Link className={"h-full flex"} href={`/food?q=${merchant.id}`}>
+        <Card className={"flex flex-col"} variant="outlined">
           <CardMedia
             component={"img"}
             height={"140"}
             src={merchant?.photoHref}
             alt={"food"}
           />
-          <CardContent>
+          <CardContent className={"flex flex-col h-full justify-between"}>
             <div className={"font-bold md:text-base text-xl"}>
               {merchant?.name}
             </div>
@@ -58,7 +59,7 @@ const MerchantCard = ({ merchant }: PromotionCardProps) => {
             </div>
           </CardContent>
         </Card>
-      </a>
+      </Link>
     </div>
   );
 };

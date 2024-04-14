@@ -12,6 +12,7 @@ import { CategorySearchResult } from "@/app/api/food/category/route";
 import MerchantCard from "@/app/components/MerchantCard";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import NotFoundAnyMerchant from "@/app/components/NotFoundAnyMerchant";
 
 const key = Object.keys(cuisineData);
 
@@ -25,14 +26,15 @@ const CuisineCategorySection = () => {
   const params = useParams();
   const router = useRouter();
 
-  /*useEffect(() => {
+  useEffect(() => {
     if (!params || params.slug.length != 2) {
       router.push("/not-found");
+      return;
     }
     if (params.slug) {
-      setSelected(params.slug);
+      setSelected(params.slug[1]);
     }
-  }, [params,]);*/
+  }, [params, router]);
 
   useEffect(() => {
     if (searchText !== "") {
@@ -112,33 +114,21 @@ const CuisineCategorySection = () => {
           })}
         </Swiper>
 
-        {!shopData && (
-          <div>
-            <div
-              className={
-                "flex mt-10 md:py-28 text-center items-center justify-center flex-col"
-              }
-            >
-              <Image src={chickBowl} alt={"chick-bowl"} />
-              <h1 className={"font-bold mt-5"}>
-                Rất tiếc, hiện không có nhà hàng nào
-              </h1>
-              <p className={"text-gray-600"}>
-                Vui lòng làm mới trang để giải quyết sự cố.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {shopData && (
+        {!shopData || !shopData.searchResult.searchMerchants ? (
+          <NotFoundAnyMerchant />
+        ) : (
           <div className={"flex items-stretch mt-5 flex-wrap"}>
             {_.map(
               shopData.searchResult.searchMerchants as [],
               (value: any, index) => {
                 return (
-                  <div className={"md:w-1/4 md:p-2 sm:w-1/2 w-full"}>
+                  <div
+                    key={index}
+                    className={"md:w-1/4 md:p-2 sm:w-1/2 w-full"}
+                  >
                     <MerchantCard
                       merchant={{
+                        id: value.id,
                         name: value.address.name,
                         estimatedDeliveryTime: value.estimatedDeliveryTime,
                         ...value.merchantBrief,
@@ -201,31 +191,6 @@ const CuisineCategoryItem = ({
           </div>
         </div>
       </Link>
-      {/*<div
-        onClick={() => {
-          router.push(
-            `/cuisines/${cuisine.name.toLowerCase().replaceAll(" ", "-")}/${cuisine.id}`,
-          );
-        }}
-      >
-        <div
-          className={`relative overflow-hidden hover:cursor-pointer rounded-xl border-[3px] hover:border-green-600 border-transparent`}
-        >
-          <Image src={cuisineBackGroundImage} alt={"cuisine"} />
-          <div
-            className={
-              "absolute z-0 top-0 left-0 w-full h-full bg-black opacity-50"
-            }
-          ></div>
-          <div
-            className={
-              "absolute z-10 text-white flex justify-center items-center top-0 left-0 w-full h-full"
-            }
-          >
-            {cuisine.name}
-          </div>
-        </div>
-      </div>*/}
     </div>
   );
 };

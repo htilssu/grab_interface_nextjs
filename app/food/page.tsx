@@ -1,22 +1,40 @@
-"use client";
-
+"use server";
 import React from "react";
-import NavBar from "@/app/components/NavBar";
-import FoodShop from "@/app/components/FoodShop";
-import Footer from "@/app/components/Footer";
-import BottomBanner from "@/app/components/BottomBanner";
-import { CartContextProvider } from "@/app/context/CartContext";
+import { Metadata, ResolvingMetadata } from "next";
+import axios from "axios";
+import { Merchant } from "@/Grab";
+import MerchantPage from "@/app/components/MerchantPage";
+import { redirect } from "next/navigation";
 
-const Page = () => {
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const data = await axios
+    .get(`https://portal.grab.com/foodweb/v2/merchants/${searchParams["q"]}`)
+    .catch(() => {
+      redirect("/not-found");
+    });
+
+  return {
+    title: (data.data as { merchant: Merchant }).merchant.name,
+  };
+}
+const Page = async ({ params, searchParams }: Props) => {
+  const data = await axios
+    .get(`https://portal.grab.com/foodweb/v2/merchants/${searchParams["q"]}`)
+    .catch(() => {
+      redirect("/not-found");
+    });
+
   return (
-    <div>
-      <CartContextProvider>
-        <NavBar addressNavbarProp={true} />
-        <FoodShop />
-        <BottomBanner />
-        <Footer />
-      </CartContextProvider>
-    </div>
+    <>
+      <MerchantPage merchant={data!.data.merchant} />
+    </>
   );
 };
 

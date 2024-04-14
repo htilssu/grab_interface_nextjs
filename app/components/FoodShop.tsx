@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { BiChevronRight } from "react-icons/bi";
 import Distance from "@/app/components/Distance";
@@ -6,14 +8,7 @@ import VoucherTag from "@/app/components/VoucherTag";
 import FoodCard from "@/app/components/FoodCard";
 import { styled, Tab, Tabs } from "@mui/material";
 import { Events, Link, scrollSpy } from "react-scroll";
-import { sampleShopData } from "@/app/dummyData";
-import { Metadata } from "next";
-
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: sampleShopData.merchant.name,
-  };
-}
+import { Merchant } from "@/Grab";
 
 const GrabTabs = styled(Tabs)({
   "& .MuiTabs-indicator": {
@@ -31,7 +26,7 @@ interface FoodSectionProps {
   arraySection: string[];
 }
 
-const FoodShop = () => {
+const FoodShop = ({ merchant }: { merchant: Merchant }) => {
   // const sectionRefs = Array(5).fill(0).map(() => useRef<HTMLHeadingElement>(null));
   const [selected, setSelected] = useState(0);
 
@@ -95,18 +90,16 @@ const FoodShop = () => {
           <a href={"/"} className={"text-sky-700"}>
             Nhà Hàng
           </a>{" "}
-          <BiChevronRight /> {sampleShopData.merchant.name}
+          <BiChevronRight /> {merchant.name}
         </div>
         <div>
-          <h1 className={"text-3xl font-bold"}>
-            {sampleShopData.merchant.name}
-          </h1>
+          <h1 className={"text-3xl font-bold"}>{merchant.name}</h1>
         </div>
         <div className={"mt-2"}>
-          <p className={"text-gray-600"}>{sampleShopData.merchant.cuisine}</p>
+          <p className={"text-gray-600"}>{merchant.cuisine}</p>
         </div>
         <div className={"flex items-center gap-10 mt-2"}>
-          <Rating rating={sampleShopData.merchant.rating} />
+          <Rating rating={merchant.rating} />
           <Distance
             className={"text-gray-600"}
             distance={{ time: "40 phút", distance: "8km" }}
@@ -135,16 +128,14 @@ const FoodShop = () => {
       >
         <div>
           <FoodSection
-            arraySection={sampleShopData.merchant.menu.categories.map(
-              (value, index) => {
-                return value.name;
-              },
-            )}
+            arraySection={merchant.menu.categories.map((value, index) => {
+              return value.name;
+            })}
           />
         </div>
       </div>
       <div className={"md:px-40 p-5 py-20 bg-[#F7F7F7]"}>
-        {sampleShopData.merchant.menu.categories.map((value, index) => {
+        {merchant.menu.categories.map((value, index) => {
           const foodData = value.items;
 
           return (
